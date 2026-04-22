@@ -26,10 +26,10 @@
 
 /* Custom wrapper: generates full DTS layer node with sensor-bindings for
  * the Cornix's two EC11 rotary encoders (volume up/down on both). */
-#define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                \
+#define ZMK_BASE_LAYER(LNAME, LT, RT, LM, RM, LB, RB, LH, RH)               \
     / { keymap { compatible = "zmk,keymap";                                    \
-        name {                                                                 \
-            display-name = #name;                                              \
+        LNAME {                                                                \
+            display-name = #LNAME;                                              \
             bindings = <                                                       \
                 &kp TAB    LT                                      RT     &kp BSPC  \
                 &kp ESC    LM                                      RM     &none     \
