@@ -31,9 +31,9 @@
 #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                \
     ZMK_LAYER(                                                                 \
         name,                                                                  \
-        &kp TAB    LT                                    RT     &kp BSPC,      \
-        &kp ESC    LM                                    RM     &none,         \
-        &none      LB                   &none    &none   RB     &none,         \
+        &kp TAB    LT                                    RT     &kp BSPC       \
+        &kp ESC    LM                                    RM     &none          \
+        &none      LB                   &none    &none   RB     &none          \
         &none &none &none &kp LGUI  LH           RH  &smart_mouse &none &none &none)
 
 #include "includes/cornix54.h"
