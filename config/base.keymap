@@ -1,6 +1,6 @@
 #include <behaviors.dtsi>
 #include <behaviors/num_word.dtsi> // Requires zmk-auto-layer module.
-#include <behaviors/unicode.dtsi> // Requires zmk-unicode module.
+// #include <behaviors/unicode.dtsi> // Not needed with EurKey (uses RA() instead).
 #include <zmk-helpers/helper.h> // Requires zmk-helpers module.
 #include <dt-bindings/zmk/keys.h>
 #ifdef CONFIG_WIRELESS
@@ -264,9 +264,9 @@ ZMK_BASE_LAYER(Mouse,
 
 ZMK_BASE_LAYER(WinMgmt,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    ___           &kp LA(N7)    &kp LA(N8)    &kp LA(N9)    ___         ,   ___           ___           &kp K         ___           ___         ,
+    ___           &kp LA(N7)    &kp LA(N8)    &kp LA(N9)    ___         ,   ___           ___           &kp LA(K)     ___           ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp LSHFT     &kp LA(N4)    &kp LA(N5)    &kp LA(N6)    ___         ,   ___           &kp H         &kp J         &kp L         ___         ,
+    &kp LSHFT     &kp LA(N4)    &kp LA(N5)    &kp LA(N6)    ___         ,   ___           &kp LA(H)     &kp LA(J)     &kp LA(L)     ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           &kp LA(N1)    &kp LA(N2)    &kp LA(N3)    ___         ,   ___           ___           ___           ___           ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯

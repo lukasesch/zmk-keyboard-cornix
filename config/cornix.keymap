@@ -22,7 +22,6 @@
  */
 
 #define CONFIG_WIRELESS
-#define HOST_OS 1 /* macOS unicode input (requires Unicode Hex Input keyboard) */
 
 /* Custom wrapper: generates full DTS layer node with sensor-bindings for
  * the Cornix's two EC11 rotary encoders (volume up/down on both). */
