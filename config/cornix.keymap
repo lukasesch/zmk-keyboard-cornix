@@ -16,25 +16,29 @@
  *
  * The inner 5 columns per side (LT4-LT0, RT0-RT4, etc.) receive urob's
  * 34-key layout. Outer columns and extra thumb/palm keys get fixed bindings.
+ *
+ * Encoder knobs: LH3(pos 30) / RH3(pos 31) = press play/pause
+ *                Rotation = volume up/down (via sensor-bindings)
  */
 
 #define CONFIG_WIRELESS
+#define HOST_OS 1 /* macOS unicode input (requires Unicode Hex Input keyboard) */
 
-/* Map urob's 34 core keys (LT/RT/LM/RM/LB/RB = 5 each, LH/RH = 2 each)
- * into the full 50-key Cornix matrix.
- *
- * Outer column keys:  Tab, Backspace, Esc, (none), (none), (none)
- * Extra thumb keys:   LGUI (LH2), smart_mouse (RH2)
- * Palm keys (LP/RP):  unused
- * Encoder keys (LH3/RH3): unused
- */
+/* Custom wrapper: generates full DTS layer node with sensor-bindings for
+ * the Cornix's two EC11 rotary encoders (volume up/down on both). */
 #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                \
-    ZMK_LAYER(                                                                 \
-        name,                                                                  \
-        &kp TAB    LT                                    RT     &kp BSPC       \
-        &kp ESC    LM                                    RM     &none          \
-        &none      LB                   &none    &none   RB     &none          \
-        &none &none &none &kp LGUI  LH           RH  &smart_mouse &none &none &none)
+    / { keymap { compatible = "zmk,keymap";                                    \
+        name {                                                                 \
+            display-name = #name;                                              \
+            bindings = <                                                       \
+                &kp TAB    LT                                      RT     &kp BSPC  \
+                &kp ESC    LM                                      RM     &none     \
+                &none      LB                  &kp C_PP  &kp C_PP  RB     &none     \
+                &none &none &none &mo WINMGMT  LH          RH  &smart_mouse &none &none &none \
+            >;                                                                 \
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>; \
+        };                                                                     \
+    }; };
 
 #include "includes/cornix54.h"
 #include "base.keymap"
