@@ -30,10 +30,10 @@
         LNAME {                                                                \
             display-name = #LNAME;                                              \
             bindings = <                                                       \
-                &kp TAB    LT                                      RT     &kp BSPC  \
-                &kp ESC    LM                                      RM     &none     \
-                &none      LB                  &kp C_PP  &kp C_PP  RB     &none     \
-                &none &none &none &mo WINMGMT  LH          RH  &smart_mouse &none &none &none \
+                &kp F13    LT                                      RT     &kp BSPC  \
+                &kp F14    LM                                      RM     &none     \
+                &kp F15    LB                  &kp C_PP  &kp C_PP  RB     &none     \
+                &kp F16 &none &none &mo WINMGMT  LH          RH  &smart_mouse &none &none &none \
             >;                                                                 \
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>; \
         };                                                                     \
